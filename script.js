@@ -1,5 +1,3 @@
-console.log("NEW SCRIPT LOADED");
-alert("new js loaded");
 function sendMessage() {
   let input = document.getElementById("user-input");
   let chatBox = document.getElementById("chat-box");
@@ -18,7 +16,7 @@ function sendMessage() {
   input.value = "";
   chatBox.scrollTop = chatBox.scrollHeight;
 
-  // Typing delay
+  // Bot delay
   setTimeout(() => {
     let botDiv = document.createElement("div");
     botDiv.classList.add("bot-message");
@@ -34,12 +32,8 @@ function getRandomReply(replies) {
 
 function getBotReply(text) {
 
-  // Greetings
-  if (
-    text.includes("hello") ||
-    text.includes("hi") ||
-    text.includes("hey")
-  ) {
+  // GREETINGS
+  if (text.includes("hello") || text.includes("hi") || text.includes("hey")) {
     return getRandomReply([
       "Hey — I’m Ida. How can I help?",
       "Hi there 👋 What can I help with today?",
@@ -47,243 +41,205 @@ function getBotReply(text) {
     ]);
   }
 
-  // What is Iron Bowl
-  if (
-    text.includes("what is iron bowl") ||
-    text.includes("what is this") ||
-    text.includes("what do you sell")
-  ) {
-    return "Iron Bowl is a New Zealand-made savoury high-protein granola designed to taste like a proper breakfast — ready in under 2 minutes.";
+  // COMPANY / BRAND
+  if (text.includes("who are you") || text.includes("what is iron standard")) {
+    return "Iron Standard is a New Zealand brand focused on real food, high protein, and practical nutrition without compromising on flavour.";
   }
 
-  // Protein
-  if (
-    text.includes("protein") ||
-    text.includes("how much protein")
-  ) {
-    return "Iron Bowl contains 20g of protein per 60g serve.";
+  if (text.includes("values") || text.includes("mission")) {
+    return "Our values focus on quality ingredients, real nutrition, performance, simplicity, and making healthier food practical.";
   }
 
-  // Ingredients
-  if (
-    text.includes("ingredients") ||
-    text.includes("what's in it") ||
-    text.includes("what is in it")
-  ) {
-    return "Main ingredients include rolled oats, whey protein isolate, pumpkin seeds, hemp seeds, aged cheddar powder, smoked paprika, nutritional yeast, sun-dried tomato flakes, avocado oil, dried egg white, and sea salt.";
+  if (text.includes("nz owned") || text.includes("new zealand") || text.includes("local")) {
+    return "Yes — Iron Bowl is proudly connected to a New Zealand-made food brand.";
   }
 
-  // Gluten
-  if (
-    text.includes("gluten") ||
-    text.includes("gluten free") ||
-    text.includes("coeliac")
-  ) {
-    return "Iron Bowl contains oats and is not suitable for coeliac disease or gluten intolerance.";
+  if (text.includes("sustainable") || text.includes("environment")) {
+    return "Iron Standard focuses on quality production and practical food solutions while aiming to reduce unnecessary waste.";
   }
 
-  // Dairy / lactose
-  if (
-    text.includes("lactose") ||
-    text.includes("dairy") ||
-    text.includes("milk")
-  ) {
-    return "Iron Bowl contains dairy (aged cheddar powder and whey protein isolate), so it isn’t suitable for dairy allergy or lactose intolerance.";
+  // PRODUCT
+  if (text.includes("what is iron bowl") || text.includes("what do you sell")) {
+    return "Iron Bowl is a savoury high-protein granola designed as a fast, practical breakfast or snack.";
   }
 
-  // Vegan
-  if (
-    text.includes("vegan")
-  ) {
-    return "No vegan version currently — this one contains whey protein and dried egg white.";
+  if (text.includes("taste") || text.includes("flavour") || text.includes("flavor")) {
+    return "It’s cheesy, smoky, savoury, and slightly tangy — built around bold breakfast flavours.";
   }
 
-  // Vegetarian
-  if (
-    text.includes("vegetarian")
-  ) {
-    return "Yes — Iron Bowl contains dairy and egg, but no meat ingredients.";
+  if (text.includes("healthy") || text.includes("benefits")) {
+    return "Iron Bowl offers protein, fibre, healthy fats, and convenience — designed for satiety and practical nutrition.";
   }
 
-  // Kids
-  if (
-    text.includes("kids") ||
-    text.includes("children")
-  ) {
-    return "Iron Bowl is formulated for adults and performance-focused nutrition. Parents can make their own call, but each serve is designed around adult macro targets.";
+  // INGREDIENTS
+  if (text.includes("ingredients") || text.includes("what is in it")) {
+    return "Main ingredients include oats, whey protein isolate, pumpkin seeds, hemp seeds, cheddar powder, smoked paprika, nutritional yeast, egg white, and sea salt.";
   }
 
-  // Taste
-  if (
-    text.includes("taste") ||
-    text.includes("flavour") ||
-    text.includes("flavor")
-  ) {
-    return "It’s cheesy, smoky, savoury, and slightly tangy — think aged cheddar, smoked paprika, sun-dried tomato, and nutritional yeast.";
+  if (text.includes("allergens")) {
+    return "Iron Bowl contains dairy, oats, and egg. Always check packaging for full allergen information.";
   }
 
-  // Prep
+  if (text.includes("gluten")) {
+    return "Iron Bowl contains oats and may not be suitable for coeliac disease or gluten intolerance.";
+  }
+
+  if (text.includes("dairy") || text.includes("lactose")) {
+    return "Yes — it contains whey protein and cheddar powder.";
+  }
+
+  if (text.includes("vegan")) {
+    return "No vegan version currently — it contains whey protein and egg white.";
+  }
+
+  if (text.includes("vegetarian")) {
+    return "Yes — it contains dairy and egg, but no meat ingredients.";
+  }
+
+  // NUTRITION
+  if (text.includes("protein")) {
+    return "Iron Bowl contains around 20g of protein per serve.";
+  }
+
+  if (text.includes("calories")) {
+    return "Calories can vary by serving size — check packaging for exact nutrition info.";
+  }
+
+  if (text.includes("carbs")) {
+    return "Iron Bowl contains carbohydrates from oats and seeds for sustained energy.";
+  }
+
+  if (text.includes("fat")) {
+    return "It contains healthy fats from seeds and oils.";
+  }
+
+  if (text.includes("fibre") || text.includes("fiber")) {
+    return "It includes fibre from oats and seeds which can help fullness and digestion.";
+  }
+
+  if (text.includes("serving size")) {
+    return "A common serving size is around 60g.";
+  }
+
+  // PREP / USE
   if (
-    text.includes("how do i eat") ||
-    text.includes("how to eat") ||
     text.includes("prepare") ||
-    text.includes("prep")
+    text.includes("how do i eat") ||
+    text.includes("how to eat")
   ) {
-    return "Pour about a 60g serve into a bowl and add toppings like Greek yoghurt, smashed avocado, cottage cheese, or a soft-boiled egg.";
+    return "Pour a serve into a bowl and add toppings like Greek yoghurt, avocado, cottage cheese, or egg.";
   }
 
-  // Shelf life
-  if (
-    text.includes("shelf life") ||
-    text.includes("how long does it last")
-  ) {
-    return "Unopened shelf life is 9 months. Once opened, best eaten within 4–6 weeks for top crunch and flavour.";
+  if (text.includes("cold")) {
+    return "Yes — many people eat Iron Bowl cold with toppings.";
   }
 
-  // Storage
-  if (
-    text.includes("store") ||
-    text.includes("storage")
-  ) {
-    return "Keep it sealed in the resealable pouch in a cool, dry place.";
+  if (text.includes("hot")) {
+    return "It’s mainly designed as a savoury crunch product, but some people add warm toppings.";
   }
 
-  // Price
-  if (
-    text.includes("price") ||
-    text.includes("cost") ||
-    text.includes("how much")
-  ) {
-    return "Iron Bowl typically retails around NZD $12–14 per unit.";
+  if (text.includes("breakfast") || text.includes("snack")) {
+    return "It works well as breakfast, a snack, or a high-protein meal add-on.";
   }
 
-  // Buy / stockists
-  if (
-    text.includes("where can i buy") ||
-    text.includes("buy") ||
-    text.includes("stock")
-  ) {
-    return "You can find Iron Bowl at Woolworths NZ, New World, or order online through Iron Standard.";
+  if (text.includes("meal prep")) {
+    return "Yes — it’s practical for quick meal prep and busy mornings.";
   }
 
-  // Bulk / wholesale
-  if (
-    text.includes("bulk") ||
-    text.includes("wholesale")
-  ) {
-    return "For bulk or wholesale orders, reach out to hello@ironstandard.co.nz.";
+  if (text.includes("toppings")) {
+    return "Popular toppings include Greek yoghurt, smashed avocado, cottage cheese, soft-boiled egg, and tomato.";
   }
 
-  // Refund
-  if (
-    text.includes("refund") ||
-    text.includes("return")
-  ) {
-    return "If there’s damage or a quality issue, email hello@ironstandard.co.nz with your order number and a photo. They’ll sort it.";
+  // FITNESS / BENEFITS
+  if (text.includes("gym") || text.includes("workout") || text.includes("training")) {
+    return "High-protein breakfasts can support recovery, satiety, and practical nutrition around training.";
   }
 
-  // Order late / missing
-  if (
-    text.includes("late order") ||
-    text.includes("missing order") ||
-    text.includes("hasn't arrived") ||
-    text.includes("not arrived")
-  ) {
-    return "That’s frustrating. If your order hasn’t arrived, contact hello@ironstandard.co.nz with your order number and email.";
+  if (text.includes("muscle gain")) {
+    return "Protein can support muscle repair and growth when paired with proper training and nutrition.";
   }
 
-  // Shipping
-  if (
-    text.includes("shipping") ||
-    text.includes("delivery") ||
-    text.includes("ship")
-  ) {
-    return "Iron Bowl currently ships within New Zealand only.";
+  if (text.includes("weight loss")) {
+    return "Higher protein foods may help satiety, depending on your full diet and goals.";
   }
 
-  // International
-  if (
-    text.includes("australia") ||
-    text.includes("international")
-  ) {
-    return "International shipping isn’t available yet — NZ only for now.";
+  if (text.includes("energy")) {
+    return "Oats, protein, and fats can help support steady energy.";
   }
 
-  // Contact
-  if (
-    text.includes("contact") ||
-    text.includes("support") ||
-    text.includes("email")
-  ) {
-    return "You can reach the team at hello@ironstandard.co.nz.";
+  if (text.includes("recovery") || text.includes("post workout")) {
+    return "Many people use protein-focused meals after training to support recovery.";
   }
 
-  // Made in NZ
-  if (
-    text.includes("where made") ||
-    text.includes("made in")
-  ) {
-    return "Iron Bowl is proudly made in New Zealand.";
+  if (text.includes("rugby") || text.includes("athlete")) {
+    return "For active lifestyles like rugby, balanced meals and protein can support recovery and performance.";
   }
 
-  // Gym / workout
-  if (
-    text.includes("before gym") ||
-    text.includes("after workout") ||
-    text.includes("post workout") ||
-    text.includes("training")
-  ) {
-    return "A high-protein breakfast can support recovery and satiety. Many people use Iron Bowl around training depending on their nutrition goals.";
+  // STORAGE
+  if (text.includes("shelf life")) {
+    return "Unopened shelf life is typically several months. Check packaging for exact best-before details.";
   }
 
-  // Rugby
-  if (
-    text.includes("rugby")
-  ) {
-    return "For active training like rugby, protein and balanced meals can help recovery and energy support.";
+  if (text.includes("store") || text.includes("storage")) {
+    return "Keep sealed in a cool, dry place.";
   }
 
-  // Toppings
-  if (
-    text.includes("toppings") ||
-    text.includes("what should i add")
-  ) {
-    return "Greek yoghurt, smashed avocado, cottage cheese, or a soft-boiled egg are all solid choices.";
+  // BUYING
+  if (text.includes("price") || text.includes("cost")) {
+    return "Pricing can vary depending on retailer and pack size.";
   }
 
-  // Brand story
-  if (
-    text.includes("brand") ||
-    text.includes("company")
-  ) {
-    return "Iron Bowl is part of Iron Standard — focused on real food, real protein, and no compromise on flavour.";
+  if (text.includes("where can i buy") || text.includes("buy")) {
+    return "Iron Bowl may be available online or through selected NZ retailers.";
   }
 
-  // Thanks
-  if (
-    text.includes("thanks") ||
-    text.includes("thank you")
-  ) {
+  if (text.includes("shipping") || text.includes("delivery")) {
+    return "Shipping availability depends on the retailer or supplier.";
+  }
+
+  if (text.includes("australia") || text.includes("international")) {
+    return "International availability may change over time — check official stockists.";
+  }
+
+  if (text.includes("wholesale") || text.includes("bulk")) {
+    return "For bulk or wholesale enquiries, contact the Iron Standard team.";
+  }
+
+  // SUPPORT
+  if (text.includes("refund") || text.includes("return")) {
+    return "For damaged or incorrect orders, contact support with your order details.";
+  }
+
+  if (text.includes("late order") || text.includes("missing order")) {
+    return "If an order is delayed, contact support with your order information.";
+  }
+
+  if (text.includes("contact") || text.includes("support") || text.includes("email")) {
+    return "You can contact the Iron Standard team for product or order support.";
+  }
+
+  // GENERAL
+  if (text.includes("thanks") || text.includes("thank you")) {
     return getRandomReply([
-      "Anytime 👌",
-      "Happy to help.",
+      "Happy to help 👌",
+      "Anytime.",
       "You got it."
     ]);
   }
 
-  // Bye
-  if (
-    text.includes("bye") ||
-    text.includes("see ya")
-  ) {
+  if (text.includes("bye")) {
     return "Catch you later 👋";
   }
 
-  // Fallback
+  if (text.includes("are you ai")) {
+    return "I’m Ida — a support chatbot built to help answer Iron Bowl questions.";
+  }
+
+  // FALLBACK
   return getRandomReply([
-    "I can help with product info, ingredients, shipping, refunds, protein, flavours, or support questions.",
-    "I didn’t quite catch that — ask me anything about Iron Bowl.",
-    "Try asking about shipping, ingredients, allergens, protein, or orders."
+    "I can help with ingredients, nutrition, benefits, buying, shipping, or support questions.",
+    "Try asking about protein, allergens, ingredients, storage, shipping, or company info.",
+    "I can answer product, nutrition, brand, and support questions."
   ]);
 }
 
