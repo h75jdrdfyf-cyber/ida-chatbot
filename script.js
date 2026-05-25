@@ -1,3 +1,5 @@
+console.log("NEW SCRIPT LOADED");
+alert("new js loaded");
 function sendMessage() {
   let input = document.getElementById("user-input");
   let chatBox = document.getElementById("chat-box");
